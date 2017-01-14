@@ -43,6 +43,10 @@ impl Request {
     fn slice(&self, slice: &Slice) -> &[u8] {
         &self.data.as_slice()[slice.0..slice.1]
     }
+
+    pub fn data(&self) -> &str {
+        str::from_utf8(self.data.as_ref()).unwrap()
+    }
 }
 
 impl fmt::Debug for Request {
